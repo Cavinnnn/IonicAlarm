@@ -1,0 +1,59 @@
+
+<ion-content padding>
+
+  <ion-card-header class="head">
+    <p class="middle">ionic alarm</p>
+  </ion-card-header>
+
+  <div class="alarm-clock">
+    <div class="date">
+      <span class="month">{{currentMonth}}</span>
+      <span class="day">{{dd}}</span>,
+      <span class="year">{{yyyy}}</span>
+    </div>
+  
+    <div class="time">
+      <span>{{hours}}</span>
+      <span>:</span>
+      <span>{{minutes}}</span>
+      <span>:</span>
+      <span>{{seconds}}</span>
+    </div>
+  </div>
+
+  <ion-card class="cards-list-demo">
+    <ion-card-header>
+      News
+    </ion-card-header>
+    <ion-card-content>
+
+        <ion-list>
+          <ion-item>
+            <ion-avatar item-start>
+              <ion-icon name="analytics" item-start></ion-icon>
+            </ion-avatar>
+            <p>{{items[0]}}</p>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-avatar item-start>
+              <ion-icon name="aperture" item-start></ion-icon>
+            </ion-avatar>
+            <p>{{items[1]}}</p>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+            <ion-item>
+              <ion-avatar item-start>
+                <ion-icon name="planet" item-start></ion-icon>
+              </ion-avatar>
+              <p>{{items[2]}}</p>
+            </ion-item>
+          </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
