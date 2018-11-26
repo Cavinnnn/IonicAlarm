@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      DateTime
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+      
+
+      
+      
+          <ion-item>
+              <ion-label>Start Time</ion-label>
+              <ion-datetime displayFormat="h:mm " pickerFormat="h mm " [(ngModel)]="event.timeStarts"></ion-datetime>
+            </ion-item>
+      
+        
+
+  
+      <ion-item class="days-button">
+        <button class="days" ion-button color="light" round>M</button>
+        <button class="days" ion-button color="light" round>T</button>
+        <button class="days" ion-button color="light" round>W</button>
+        <button class="days" ion-button color="light" round>T</button>
+        <button class="days" ion-button color="light" round>F</button>
+        <button class="days" ion-button color="light" round>S</button>
+        <button class="days" ion-button color="light" round>S</button>
+      </ion-item>
+
+
+    <ion-footer>
+        <div class="button-set">
+          <button  ion-button outline>Set Alarm</button>
+        </div>
+    </ion-footer>
+</ion-content>

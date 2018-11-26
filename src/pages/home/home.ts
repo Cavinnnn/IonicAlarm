@@ -1,5 +1,6 @@
 import { Component, OnInit,  } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { NewsApiProvider } from '../../providers/news-api/news-api';
 
 @Component({
   selector: 'page-home',
@@ -9,6 +10,13 @@ import { NavController } from 'ionic-angular';
 export class HomePage implements OnInit {
 
   // https://codepen.io/joshuaward/pen/pWXrGM
+
+  splash = true;
+  tabBarElement: any;
+
+  newsItems1;
+  newsItems2;
+  newsItems3;
 
   todayTime;
   todayDate;
@@ -23,8 +31,14 @@ export class HomePage implements OnInit {
   seconds;
 
 
-  constructor(public navCtrl: NavController) {
-  
+  constructor(public navCtrl: NavController, private _newService: NewsApiProvider) {
+
+    this._newService.getNews().subscribe(news => {
+    this.newsItems1 = news.articles[0].title;
+    this.newsItems2 = news.articles[1].title;
+    this.newsItems3 = news.articles[2].title;
+    console.log(this.newsItems1);
+  });
 
     this.month[1] = "January";
     this.month[2] = "February";
@@ -38,6 +52,8 @@ export class HomePage implements OnInit {
     this.month[10] = "October";
     this.month[11] = "November";
     this.month[12] = "December";
+
+    this.tabBarElement = document.querySelector('.tabbar');
   }
 
   ngOnInit() {
@@ -45,6 +61,14 @@ export class HomePage implements OnInit {
     this.setTime();
     this.setDate();
     //this.currentMonth = this.month[this.mm];
+  }
+
+  ionViewDidLoad() {
+    this.tabBarElement.style.display = 'none';
+    setTimeout(() => {
+      this.splash = false;
+      this.tabBarElement.style.display = 'flex';
+    }, 4000);
   }
 
   setTime(){
@@ -77,11 +101,5 @@ export class HomePage implements OnInit {
     this.yyyy = this.todayDate.getFullYear();
     
   }
-
-    items = [
-      'News Item 1',
-      'News Item 2',
-      'News Item 3'
-    ]
     
 }
